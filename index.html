@@ -26,13 +26,20 @@
                 var drawer = new MapDrawer(element);
                 drawer.init();
 
-                drawer.drawLine(
-                        new Point(52.40, 16.90),
-                        new Point(52.23, 21.06),
-                        {}
-                );
-console.log(JSONToGasNetwork);
-                console.log(JSONToGasNetwork(pipes));
+                var it = JSONToGasNetwork(pipes).pipes.iterator();
+
+                while(!it.end()){
+                    var pipe = it.getNext();
+                        drawer.drawLine(
+                                pipe.start,
+                                pipe.finish,
+                                {
+                                    popup: "this is a popup!" // click on the line to see the popup
+                                }
+                        );
+                    }
+
+
         });
     </script>
 

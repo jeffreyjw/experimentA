@@ -1,34 +1,40 @@
 define([
-
-], function(){
+    "gaslib/Angle",
+    "gaslib/GasNetwork",
+    "gaslib/Pipe"
+], function(Angle, GN, Pipe){
     "use strict";
 
     var JSONToGasNetwork = function(data){
         var pipes = data.pipes;
+        var gasNetwork = new GN();
 
+        pipes.forEach (function(p)  {
 
-        require([
-            "gaslib/Angle"
-        ], function(Angle){
+            if (p.start.unit=="rad") {
+                p.start.lat = Angle.radianToDegree(p.start.lat);
+                p.start.lng = Angle.radianToDegree(p.start.lng);
+                p.start.unit = "deg";
+            }
+            if (p.end.unit=="rad") {
+                p.end.lat = Angle.radianToDegree(p.end.lat);
+                p.end.lng = Angle.radianToDegree(p.end.lng);
+                p.end.unit = "deg";
+            }
+            var newPipe = new Pipe();
 
-            pipes.forEach (function(p)  {
+            newPipe.finish = p.end;
+            newPipe.start = p.start;
+            newPipe.maxFlow = p.maxFlow;
+            newPipe.flow = p.flow;
 
-                if (p.start.unit=="rad") {
-                    p.start.lat = Angle.radianToDegree(p.start.lat);
-                    p.start.lng = Angle.radianToDegree(p.start.lng);
-                    p.start.unit = "deg";
-                }
-                if (p.end.unit=="rad") {
-                    p.end.lat = Angle.radianToDegree(p.end.lat);
-                    p.end.lng = Angle.radianToDegree(p.end.lng);
-                    p.end.unit = "deg";
-                }
-
-            });
+            gasNetwork.addPipe(newPipe);
 
         });
 
-        return pipes;
+
+
+        return gasNetwork;
 
 
     };
