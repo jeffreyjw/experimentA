@@ -4,8 +4,39 @@
     <meta charset="UTF-8">
     <title>Gazociąg</title>
     <link rel="stylesheet" href="style.css" />
+
+    <script src="/require.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDN-WwVrDmkr16yW73h_iU4UIFxyJLBalg"></script>
+
+    <script type="text/javascript">
+        requirejs.config({
+            //By default load any module IDs from js/lib
+            baseUrl: 'scripts'
+
+        });
+
+        require([
+            "maplib/MapDrawer",
+            "gaslib/Point"
+        ], function(MapDrawer, Point){
+                var element = document.getElementById("map");
+                var drawer = new MapDrawer(element);
+                drawer.init();
+
+                drawer.drawLine(
+                        new Point(52.40, 16.90),
+                        new Point(52.23, 21.06),
+                        {}
+                );
+        });
+    </script>
+
+
 </head>
 <body>
+
+<div id="map"></div>
 
 </body>
 </html>
