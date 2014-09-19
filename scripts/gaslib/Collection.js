@@ -9,6 +9,10 @@ define([
 
     Collection.constructor = Collection;
 
+    Collection.prototype.getSize = function()
+    {
+        return this.__collection.length;
+    }
 
     Collection.prototype.add = function(element){
         this.__collection.push(element);
