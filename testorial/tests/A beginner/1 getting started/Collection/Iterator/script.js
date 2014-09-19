@@ -10,7 +10,7 @@ require([
         collection.add("Placki");
         collection.add(1);
 
-        var iter = collection.getIterator();
+        var iter = collection.iterator();
 
         assert.equal( iter.getNext(), 6, "Nie znaleziono wartości 6" );
         assert.equal( iter.end(), false, "Elementy są w kolekcji a end zwraca co innego" );
