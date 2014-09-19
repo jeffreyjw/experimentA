@@ -13,7 +13,7 @@ define([], function(){
         return this.collection[this.position++];
     }
 
-    
+
     Iterator.prototype.end = function()
     {
         return this.position == this.collection.length;
