@@ -18,8 +18,10 @@
 
         require([
             "maplib/MapDrawer",
-            "gaslib/Point"
-        ], function(MapDrawer, Point){
+            "gaslib/Point",
+            "networkData",
+            "JSONToGasNetwork"
+        ], function(MapDrawer, Point, pipes, JSONToGasNetwork){
                 var element = document.getElementById("map");
                 var drawer = new MapDrawer(element);
                 drawer.init();
@@ -29,6 +31,8 @@
                         new Point(52.23, 21.06),
                         {}
                 );
+console.log(JSONToGasNetwork);
+                console.log(JSONToGasNetwork(pipes));
         });
     </script>
 
