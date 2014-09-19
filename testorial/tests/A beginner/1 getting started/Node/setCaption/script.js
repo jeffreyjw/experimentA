@@ -6,7 +6,9 @@ require([
 
         var node = new Node();
 
-        assert.equal( node.getCaption(), "Node", "Nieprawidłowa nazwa węzła" );
+        node.setCaption("Lubie placki");
+
+        assert.equal( node.getCaption(), "Lubie placki", "Nieprawidłowa nazwa węzła" );
     });
 
 });
