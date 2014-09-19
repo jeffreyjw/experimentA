@@ -12,7 +12,7 @@ require([
         pipe.setFinishPoint(finish);
 
         //283,87?
-        assert.equal( pipe.length(), 21.108772741743323, "Niewłaściwa długość rury" );
+        assert.equal( pipe.lengthInKm(), 21.108772741743323, "Niewłaściwa długość rury" );
     });
 
 });

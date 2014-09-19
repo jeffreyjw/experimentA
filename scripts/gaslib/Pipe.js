@@ -13,7 +13,7 @@ define([
 
     Pipe.constructor = Pipe;
 
-    Pipe.prototype.length = function()
+    Pipe.prototype.lengthInKm = function()
     {
         return Helpers.distanceInKm(this.start, this.finish);
     };
