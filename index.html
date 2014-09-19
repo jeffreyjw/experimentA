@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <title>Gazociąg</title>
     <link rel="stylesheet" href="style.css" />
+
+    <script src="/require.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDN-WwVrDmkr16yW73h_iU4UIFxyJLBalg"></script>
+
+    <script type="text/javascript">
+        require([
+            "scripts/maplib/MapDrawer"
+        ], function(MapDrawer){
+                var element = document.getElementById("map");
+                var drawer = new MapDrawer(element);
+                drawer.init();
+        });
+    </script>
+
+
 </head>
 <body>
+
+<div id="map"></div>
 
 </body>
 </html>
