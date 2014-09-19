@@ -34,7 +34,10 @@
                                 pipe.start,
                                 pipe.finish,
                                 {
-                                    popup: "this is a popup!" // click on the line to see the popup
+                                    popup:
+                                            "przeplyw <br />" + pipe.flow
+                                    +"<br /> przeplyw max " + pipe.maxFlow
+                                            +"<br /> przeplyw uzycie" + pipe.usage()
                                 }
                         );
                     }
